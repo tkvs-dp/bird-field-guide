@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="鳥類圖鑑：可持續擴充文字、圖片、影片、HTML 作品與簡報的靜態網站。" />
+  <title>羽跡｜鳥類圖鑑</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="回到首頁">
+      <span class="brand-mark" aria-hidden="true">羽</span>
+      <span>
+        <strong>羽跡</strong>
+        <small>Bird Field Guide</small>
+      </span>
+    </a>
+    <nav class="nav" aria-label="主要導覽">
+      <a href="#guide">圖鑑</a>
+      <a href="#about">關於</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">觀察・記錄・持續擴充</p>
+        <h1>從一隻鳥開始，<br />建立自己的自然圖鑑。</h1>
+        <p class="lead">
+          把每週找到的鳥類、照片、影片、網頁作品與簡報整理在同一個地方，
+          讓網站隨著學期一起成長。
+        </p>
+        <a class="primary-button" href="#guide">開始瀏覽圖鑑</a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="sun"></div>
+        <div class="branch"></div>
+        <img src="assets/hero-bird.svg" alt="" />
+      </div>
+    </section>
+
+    <section class="toolbar" id="guide">
+      <div>
+        <p class="section-kicker">FIELD GUIDE</p>
+        <h2>鳥類條目</h2>
+      </div>
+      <div class="controls">
+        <label class="search">
+          <span class="sr-only">搜尋鳥類</span>
+          <input id="searchInput" type="search" placeholder="搜尋名稱、地點或關鍵字…" />
+        </label>
+        <select id="habitatFilter" aria-label="依棲地篩選">
+          <option value="all">全部棲地</option>
+        </select>
+      </div>
+    </section>
+
+    <section id="birdGrid" class="bird-grid" aria-live="polite"></section>
+    <p id="emptyState" class="empty-state" hidden>找不到符合條件的鳥類。</p>
+
+    <section class="about" id="about">
+      <div>
+        <p class="section-kicker">ABOUT THIS PROJECT</p>
+        <h2>這本圖鑑會跟著作品一起長大。</h2>
+      </div>
+      <p>
+        每一個鳥類條目都能加入文字、圖片、影片、HTML 作品與簡報。
+        你可以把它當成自然觀察筆記，也可以把每週完成的數位作品累積成自己的學期成果網站。
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <span>羽跡｜鳥類圖鑑</span>
+    <span>HTML · CSS · JavaScript</span>
+  </footer>
+
+  <template id="birdCardTemplate">
+    <article class="bird-card">
+      <button class="card-main" type="button" aria-expanded="false">
+        <div class="image-wrap">
+          <img class="bird-image" alt="" />
+          <span class="habitat-chip"></span>
+        </div>
+        <div class="card-body">
+          <p class="latin-name"></p>
+          <h3 class="bird-name"></h3>
+          <p class="summary"></p>
+          <div class="meta-row">
+            <span class="location"></span>
+            <span class="toggle-label">展開條目 ＋</span>
+          </div>
+        </div>
+      </button>
+      <div class="card-details" hidden></div>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>

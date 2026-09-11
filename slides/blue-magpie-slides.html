@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>臺灣藍鵲｜迷你簡報</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#17312c;color:#f8f4e9;font-family:system-ui,"Microsoft JhengHei",sans-serif;overflow:hidden}
+.slide{width:100vw;height:100vh;display:none;padding:8vw;align-items:center}.slide.active{display:flex}
+.kicker{color:#efc978;letter-spacing:.18em;font-weight:800}.content{max-width:900px}
+h1{font-size:clamp(3rem,10vw,8rem);margin:.15em 0;line-height:1}p{font-size:clamp(1rem,2.6vw,1.7rem);line-height:1.7;color:#d7e0db}
+.nav{position:fixed;right:24px;bottom:24px;display:flex;gap:8px}.nav button{border:0;border-radius:999px;padding:10px 16px;cursor:pointer}
+</style>
+</head>
+<body>
+<section class="slide active"><div class="content"><div class="kicker">01 · 臺灣特有種</div><h1>臺灣藍鵲</h1><p>一條很長的藍色尾羽，讓牠飛過樹林時幾乎不可能被忽略。</p></div></section>
+<section class="slide"><div class="content"><div class="kicker">02 · 如何觀察</div><h1>先找「一群」</h1><p>臺灣藍鵲常以家族群體活動。與其只找一隻鳥，可以先留意樹林間成群移動的聲音與身影。</p></div></section>
+<section class="slide"><div class="content"><div class="kicker">03 · 下一次紀錄</div><h1>你在哪裡看到牠？</h1><p>把日期、地點、天氣、數量與行為記進自己的鳥類圖鑑。</p></div></section>
+<div class="nav"><button id="prev">←</button><button id="next">→</button></div>
+<script>
+const slides=[...document.querySelectorAll('.slide')];let i=0;
+function show(n){i=(n+slides.length)%slides.length;slides.forEach((s,j)=>s.classList.toggle('active',j===i))}
+document.querySelector('#prev').onclick=()=>show(i-1);
+document.querySelector('#next').onclick=()=>show(i+1);
+addEventListener('keydown',e=>{if(e.key==='ArrowRight')show(i+1);if(e.key==='ArrowLeft')show(i-1)});
+</script>
+</body>
+</html>
